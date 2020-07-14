@@ -21,6 +21,9 @@ Imagens base utilizada:
 - set custom vagrant template
 - mirror vagrant
 
+### Terraform
+- TODO GCP\AWS\AZURE
+
 ### All
 
 - Inspec

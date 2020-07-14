@@ -1,0 +1,41 @@
+{
+  "builders":[
+     {
+        "type":"virtualbox-ovf",
+        "source_path":"/home/user/.vagrant.d/boxes/debian-VAGRANTSLASH-buster64/10.4.0/virtualbox/box.ovf",
+        "ssh_username":"vagrant",
+        "ssh_private_key_file":"../../vagrant_key/vagrant",
+        "ssh_wait_timeout":"10000s",
+        "shutdown_command":"echo 'packer' | sudo -S shutdown -P now",
+        "guest_additions_mode":"disable",
+        "headless":true,
+        "vm_name":"531-Terraform-4Linux",
+        "vboxmanage":[
+           [
+              "modifyvm",
+              "{{.Name}}",
+              "--memory",
+              "1024"
+           ],
+           [
+              "modifyvm",
+              "{{.Name}}",
+              "--cpus",
+              "1"
+           ]
+        ],
+        "export_opts":[
+           "--manifest",
+           "--vsys",
+           "0"
+        ],
+        "format":"ova"
+     }
+  ],
+  "provisioners":[
+     {
+        "type":"shell",
+        "script":"../Provisioning/base.sh"
+     }
+  ]
+}

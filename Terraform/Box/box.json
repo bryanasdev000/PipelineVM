@@ -1,0 +1,19 @@
+{
+  "builders": [
+    {
+      "communicator": "ssh",
+      "source_path": "debian/buster64",
+      "box_version": "10.4.0",
+      "provider": "virtualbox",
+      "add_force": true,
+      
+      "type": "vagrant"
+    }
+  ],
+  "provisioners":[
+     {
+        "type":"shell",
+        "script":"../Provisioning/base.sh"
+     }
+  ]
+}
